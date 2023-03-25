@@ -1,0 +1,47 @@
+* {
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#threeCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* margin-left: 50%; */
+  /* transform: translateX(-100%); */
+}
+
+#videoCanvas {
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-left: 50%; */
+  /* transform: translateX(-50%); */
+}
+
+.controls {
+  display: flex;
+  width: fit-content;
+  padding-left: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#pause {
+  width: 15rem;
+}
+
+#info {
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+}
+
+input {
+  display: block;
+  margin-left: 1rem;
+}
+
+#quatString {
+  width: 
+}
