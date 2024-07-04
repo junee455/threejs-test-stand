@@ -1,25 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <title>AR.js A-Frame</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
 
-<head>
-  <title>AR.js A-Frame</title>
-  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-  <link rel="stylesheet" href="index.css">
-</head>
-
-<body>
-  <a-scene>
-    <a-assets>
-      <a-asset-item id="polytech" src="polytech.glb"></a-asset-item>
-    </a-assets>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="500" height="500" color="#7BC8A4"></a-plane>
-    <a-entity gltf-model="#polytech"></a-entity>
-    <a-entity id="mainCamera" camera orientation-reader look-controls position="0 1.6 4"></a-entity>
-  </a-scene>
-  <div id="info">
-    <div id="position"></div>
-    <div id="rotation"></div>
-  </div>
-</body>
-
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="polytech" src="polytech.glb"></a-asset-item>
+      </a-assets>
+      <a-plane
+        position="0 0 -4"
+        rotation="-90 0 0"
+        width="500"
+        height="500"
+        color="#7BC8A4"
+      ></a-plane>
+      <a-entity gltf-model="#polytech"></a-entity>
+      <a-entity
+        id="mainCamera"
+        camera
+        orientation-reader
+        look-controls
+        position="0 1.6 4"
+      ></a-entity>
+    </a-scene>
+    <div id="info">
+      <div id="position"></div>
+      <div id="rotation"></div>
+    </div>
+  </body>
 </html>

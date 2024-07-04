@@ -1,6 +1,6 @@
-import './index.css';
+import "./index.css";
 
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 let infoComponent;
 
@@ -10,9 +10,8 @@ let camera;
 
 let cameraPosition, cameraRotation;
 
-const imageWidth = 540
-const imageHeight = 960
-
+const imageWidth = 540;
+const imageHeight = 960;
 
 function sleep(time) {
   return new Promise((resolve) => setTimeout(resolve, time));
@@ -28,7 +27,7 @@ function constructRequestData(photo, location_ids, session_id) {
       location_ids,
       session_id,
       timestamp: new Date().getTime(),
-      client_coordinate_system: 'blender',
+      client_coordinate_system: "blender",
       tracking_pose: {
         x: 0,
         y: 0,
@@ -50,53 +49,53 @@ function constructRequestData(photo, location_ids, session_id) {
   };
 
   const formData = new FormData();
-  formData.append('image', photo);
-  formData.append('json', JSON.stringify({ data: requestJson }));
+  formData.append("image", photo);
+  formData.append("json", JSON.stringify({ data: requestJson }));
 
   return formData;
 }
 
 async function sendToVps(formData, onResponse) {
-  await fetch('https://vps-stage.naviar.io/vps/api/v3', {
-      method: 'POST',
-      body: formData,
-      mode: 'cors',
-      headers: {
-        Accept: 'application/json',
-      },
-    }).then(
-      (res) => {
-        try {
-          res.json().then((json) => {
-            try {
-              const [camPos, camRot] = vpsPoseToPosAndRot(
-                json.data.attributes.vps_pose
-              );
+  await fetch("https://vps-stage.naviar.io/vps/api/v3", {
+    method: "POST",
+    body: formData,
+    mode: "cors",
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((res) => {
+      try {
+        res.json().then((json) => {
+          try {
+            const [camPos, camRot] = vpsPoseToPosAndRot(
+              json.data.attributes.vps_pose,
+            );
 
-              onResponse(camPos, camRot);
-            } catch {
-              return;
-            }
-          });
-        } catch (err) {
-          console.log('error');
-          console.log(err);
-        }
+            onResponse(camPos, camRot);
+          } catch {
+            return;
+          }
+        });
+      } catch (err) {
+        console.log("error");
+        console.log(err);
       }
-    ).catch((err) => {
+    })
+    .catch((err) => {
       console.log(err);
     });
 }
 
 async function initVideo() {
-  const canvas = document.getElementById('videoCanvas');
+  const canvas = document.getElementById("videoCanvas");
 
-  let context = canvas.getContext('2d');
+  let context = canvas.getContext("2d");
 
-  let video = document.createElement('video');
+  let video = document.createElement("video");
 
-  canvas.setAttribute('width', imageWidth);
-  canvas.setAttribute('height', imageHeight);
+  canvas.setAttribute("width", imageWidth);
+  canvas.setAttribute("height", imageHeight);
 
   let videoObj = {
     video: {
@@ -110,8 +109,8 @@ async function initVideo() {
         ideal: 960,
         max: 1440,
       },
-      request: ['width', 'height'],
-      facingMode: 'environment',
+      request: ["width", "height"],
+      facingMode: "environment",
     },
   };
 
@@ -128,7 +127,7 @@ async function initVideo() {
       0,
       0,
       imageWidth,
-      imageHeight
+      imageHeight,
     );
     raf = requestAnimationFrame(loop);
   }
@@ -142,9 +141,9 @@ async function initVideo() {
     console.log(width, height);
 
     video.srcObject = stream;
-    video.setAttribute('autoplay', '');
-    video.setAttribute('muted', '');
-    video.setAttribute('playsinline', '');
+    video.setAttribute("autoplay", "");
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
     video.onplaying = function () {
       crop = {
         w: imageWidth,
@@ -164,16 +163,16 @@ async function initVideo() {
     video.play();
   });
 
-  const imgElement = document.getElementById('camPhoto');
+  const imgElement = document.getElementById("camPhoto");
 
   const id = uuidv4();
-  
+
   // for(;;) {
   //   await sleep(500);
   //   imgElement.setAttribute('src', canvas.toDataURL());
 
   //   const formData = constructRequestData(canvas.toDataURL(), ['polytech'], id);
-    
+
   //   await sendToVps(formData, (camPos, camRot) => {
   //     console.log(camPos);
   //     console.log(camRot);
@@ -182,21 +181,21 @@ async function initVideo() {
 }
 
 async function grabACanvas() {
-  const imageElement = document.getElementById('camPhoto');
+  const imageElement = document.getElementById("camPhoto");
 
   const canvas = document.querySelector("body > a-scene > canvas");
 
-  for(;;) {
+  for (;;) {
     await sleep(500);
-    imageElement.setAttribute('src', canvas.toDataURL('image/png'));
+    imageElement.setAttribute("src", canvas.toDataURL("image/png"));
   }
 }
 
-window.addEventListener('load', async () => {
-  infoComponent = document.querySelector('div#info');
-  infoRotation = infoComponent.querySelector('div#rotation');
-  infoPosition = infoComponent.querySelector('div#position');
-  camera = document.getElementById('mainCamera');
+window.addEventListener("load", async () => {
+  infoComponent = document.querySelector("div#info");
+  infoRotation = infoComponent.querySelector("div#rotation");
+  infoPosition = infoComponent.querySelector("div#position");
+  camera = document.getElementById("mainCamera");
 
   let posX, posY, posZ;
 
@@ -211,7 +210,7 @@ window.addEventListener('load', async () => {
   let accelerationSamples = [];
 
   function sampleAcceleration(val) {
-    if(accelerationSamples.length < 20) {
+    if (accelerationSamples.length < 20) {
       accelerationSamples.push(val);
     } else {
       accelerationSamples = [...accelerationSamples.slice(1), val];
@@ -219,55 +218,59 @@ window.addEventListener('load', async () => {
   }
 
   function getAverageAcceleration() {
-    if(!accelerationSamples.length) {
+    if (!accelerationSamples.length) {
       return 0;
     }
-    
+
     const length = accelerationSamples.length;
     let sum = 0;
-    for(let val of accelerationSamples) {
+    for (let val of accelerationSamples) {
       sum += val;
     }
 
     return sum / length;
   }
 
-  window.addEventListener('devicemotion', (ev) => {
-    const ax = ev.acceleration.x;
-    const ay = ev.acceleration.y;
-    let az = ev.acceleration.z;
+  window.addEventListener(
+    "devicemotion",
+    (ev) => {
+      const ax = ev.acceleration.x;
+      const ay = ev.acceleration.y;
+      let az = ev.acceleration.z;
 
-    sampleAcceleration(az);
+      sampleAcceleration(az);
 
-    az = getAverageAcceleration();
-    
-    const dt = ev.interval / 1000;
+      az = getAverageAcceleration();
 
-    posX += vx * dt + ax * dt * dt / 2;
-    posY += vy * dt + ay * dt * dt / 2;
-    posZ += vz * dt + az * dt * dt / 2;
+      const dt = ev.interval / 1000;
 
-    vx += ax;
-    vy += ay;
-    vz += az;
-    
-    infoPosition.innerHTML = `position: ${posX.toFixed(2)} ${posY.toFixed(2)} ${posZ.toFixed(2)}`;
-  }, true);
-  
+      posX += vx * dt + (ax * dt * dt) / 2;
+      posY += vy * dt + (ay * dt * dt) / 2;
+      posZ += vz * dt + (az * dt * dt) / 2;
+
+      vx += ax;
+      vy += ay;
+      vz += az;
+
+      infoPosition.innerHTML = `position: ${posX.toFixed(2)} ${posY.toFixed(
+        2,
+      )} ${posZ.toFixed(2)}`;
+    },
+    true,
+  );
+
   initVideo();
 });
 
-
-
 function setCameraPosition(x, y, z) {
-  camera.setAttribute('position', `${x} ${y} ${z}`);
+  camera.setAttribute("position", `${x} ${y} ${z}`);
 }
 
 function setCameraRotation(x, y, z) {
-  camera.setAttribute('rotation', `${x} ${y} ${z}`);
+  camera.setAttribute("rotation", `${x} ${y} ${z}`);
 }
 
-AFRAME.registerComponent('orientation-reader', {
+AFRAME.registerComponent("orientation-reader", {
   tick: function () {
     // `this.el` is the element.
     // `object3D` is the three.js object.
@@ -279,8 +282,10 @@ AFRAME.registerComponent('orientation-reader', {
     cameraPosition = this.el.object3D.position;
 
     if (infoRotation) {
-      infoRotation.innerHTML = `rotation: ${cameraRotation.x.toFixed(2)} ${cameraRotation.y.toFixed(2)} ${cameraRotation.z.toFixed(2)}`;
+      infoRotation.innerHTML = `rotation: ${cameraRotation.x.toFixed(
+        2,
+      )} ${cameraRotation.y.toFixed(2)} ${cameraRotation.z.toFixed(2)}`;
       // infoPosition.innerHTML = `position: ${cameraPosition.x.toFixed(2)} ${cameraPosition.y.toFixed(2)} ${cameraPosition.z.toFixed(2)}`;
     }
-  }
+  },
 });

@@ -1,0 +1,333 @@
+<div id="videoContainer">
+  <video width="100%" height="100%" id="mainVideo" autoplay muted loop>
+    <source src="<%=require('./site_v0.5.mp4')%>" />
+  </video>
+</div>
+
+<div id="toggleMute"></div>
+
+<div class="header">
+  <h1>EasyVFX</h1>
+  <a class="left" href="">Pricing</a>
+  <a class="left" href="">Privacy</a>
+
+  <span></span>
+
+  <a class="right">Log in</a>
+  <a class="action right" href="">Register</a>
+</div>
+
+<div id="mainContainer">
+
+  <div id="videoForeground">
+    <h1>EasyVFX</h1>
+    <h1>Lip sync</h1>
+
+    <p>
+      A groundbreaking plugin that brings high quality lip sync from audio faster than ever.<br />
+      Ideal for directors, developers and animators.
+    </p>
+
+    <a class="action" href="">Try it for free</a>
+
+    <div id="compatibleWith">
+      <h2>Compatible with</h2>
+      <div class="links">
+        <a class="unreal" href=""></a>
+        <a class="unity" href=""></a>
+        <a class="maya" href=""></a>
+        <a class="blender" href=""></a>
+        <a class="arkit" href="">Arkit/facs</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="pageContent">
+    <div id="showcases" class="tabs">
+      <button class="active">For animation</button>
+      <button>For interactive avatars</button>
+    </div>
+
+    <div id="case-1" class="documentationBlock purple">
+      <div>
+        <video>
+          <source src="<%=require('./v2_landing.mp4')%>" />
+        </video>
+        <button class="playButton">Tap to play</button>
+      </div>
+
+      <div>
+        <h2>Automatically generate<br />
+          lip sync animation</h2>
+
+        <h3 class="withCheckIcon">Reduce production time</h3>
+        <p>Insert text or audio to get instant result.
+          Save at least 24 hours on 1 minute animation.</p>
+
+        <h3 class="withCheckIcon">Achieve high quality with ease</h3>
+        <p>Generate animations with outstanding lip-sync quality.
+          No manual modification required.</p>
+
+        <h3 class="withCheckIcon">Suits for multilingual projects</h3>
+        <p>Doesn't depend on language, so you can scale globally.</p>
+
+        <button class="action">Try for free</button>
+      </div>
+    </div>
+
+    <div id="case-2" class="documentationBlock purple">
+      <div>
+        <video>
+          <source src="<%=require('./normalspeed_1.mp4')%>" />
+        </video>
+        <button class="playButton">Tap to play</button>
+      </div>
+
+      <div>
+        <h2>Generate real-time<br />
+          lip-sync animation</h2>
+
+        <h3 class="withCheckIcon">Ready-to-use blueprints</h3>
+        <p>Talk component for a quick and easy start</p>
+
+        <h3 class="withCheckIcon">Combine with LLMs</h3>
+        <p>To generate intelligent responses, creating lifelike conversations.</p>
+
+        <h3 class="withCheckIcon">Connect Pixel streaming</h3>
+        <p>To show your avatar directlyto users' browsers.</p>
+
+        <button class="action">Try for free</button>
+      </div>
+    </div>
+
+    <div id="docs" class="tabs">
+      <button class="active">Documentation</button>
+      <button>Tutorials</button>
+    </div>
+
+    <div id="doc-1" class="documentationBlock black">
+      <div>
+        <video>
+          <source src="<%=require('./test-video.mp4')%>" />
+        </video>
+        <button class="playButton">Tap to play</button>
+      </div>
+
+      <div>
+        <h2>Download Demo project<br />
+          and read documentation here</h2>
+
+        <p class="withCheckIcon">Ready- to- use Metahuman: text- to- face, audio-to-face or interactive chat.</p>
+
+        <p class="withCheckIcon">Blendable animations in Metahumanwith face, body and even emotions.</p>
+
+        <p class="withCheckIcon">ChatGPT integration, just pasteyour OpenAI  token, and more.</p>
+
+        <button class="action">Download demo project</button>
+      </div>
+    </div>
+
+    <div id="doc-2" class="documentationBlock black">
+      <div>
+        <video>
+          <source src="<%=require('./test-video.mp4')%>" />
+        </video>
+        <button class="playButton">Tap to play</button>
+      </div>
+
+      <div>
+        <h2>Detailed tutorials on how to</h2>
+
+        <ul>
+          <li>Integrate TTS </li>
+          <li>Add Audio to Lip Sync </li>
+          <li>Add Audio to Lip Sync streaming </li>
+          <li>Integrate a chat bot </li>
+          <li>Combine everything into a single combo request, and more</li>
+        </ul>
+
+        <div class="flex">
+          <button class="youtube">
+            <div>
+              Go to Youtube
+            </div>
+            <div class="icon"></div>
+          </button>
+          <button class="discord">Discord community</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <h1>Pricing</h1>
+
+    <div class="plans">
+      <div class="cardPlan">
+        <h2>Trial</h2>
+        <p>Unlimited lip sync generations
+          for 2 days</p>
+        <h2 class="textGradient">Free</h2>
+        <button class="action">Activate plan</button>
+        <div class="withChecks">
+          <div>1 generation is limited to 5 seconds, there is no limit to generations</div>
+          <div>Audio to Lip sync</div>
+          <div>Real-time Lip sync</div>
+          <div>Text to Speech</div>
+          <div>Metahuman or a custom 3D model</div>
+        </div>
+      </div>
+      <div class="cardPlan">
+        <h2>Lite</h2>
+        <p>Unlimited lip sync generations
+          for 2 days</p>
+        <span>
+          <span class="textGradient">$5</span><span>/month</span>
+        </span>
+        <button class="outlined">Buy plan</button>
+        <div class="withChecks">
+          <div>1 generation is limited to 5 seconds, there is no limit to generations</div>
+          <div>Audio to Lip sync</div>
+          <div>Real-time Lip sync</div>
+          <div>Text to Speech</div>
+          <div>Metahuman or a custom 3D model</div>
+        </div>
+      </div>
+      <div class="cardPlan">
+        <h2>Standard</h2>
+        <p>Unlimited lip sync generations
+          for 2 days</p>
+        <span>
+          <span class="textGradient">$15</span><span>/month</span>
+        </span>
+        <button class="outlined">Buy plan</button>
+        <div class="withChecks">
+          <div>1 generation is limited to 5 seconds, there is no limit to generations</div>
+          <div>Audio to Lip sync</div>
+          <div>Real-time Lip sync</div>
+          <div>Text to Speech</div>
+          <div>Metahuman or a custom 3D model</div>
+        </div>
+      </div>
+      <div class="cardPlan">
+        <h2>Pro</h2>
+        <p>Unlimited lip sync generations
+          for 2 days</p>
+        <span>
+          <span class="textGradient">$120</span><span>/month</span>
+        </span>
+        <button class="outlined">Buy plan</button>
+        <div class="withChecks">
+          <div>1 generation is limited to 5 seconds, there is no limit to generations</div>
+          <div>Audio to Lip sync</div>
+          <div>Real-time Lip sync</div>
+          <div>Text to Speech</div>
+          <div>Metahuman or a custom 3D model</div>
+        </div>
+      </div>
+      <div class="cardPlan">
+        <h2>Chatbot</h2>
+        <p>Unlimited lip sync generations
+          for 2 days</p>
+        <span>
+          <span>Starts from </span>
+          <span class="textGradient">$1</span>
+          <span>/month</span>
+        </span>
+        <button class="outlined">Buy plan</button>
+        <div class="withChecks">
+          <div>1 generation is limited to 5 seconds, there is no limit to generations</div>
+          <div>Audio to Lip sync</div>
+          <div>Real-time Lip sync</div>
+          <div>Text to Speech</div>
+          <div>Metahuman or a custom 3D model</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contactUs">
+      <h1>Want an interactive avatar for your business?<br />
+        We can build it for you!</h1>
+      <h1 class="purple">Contact us
+        <a href="">here.</a>
+      </h1>
+    </div>
+
+    <h1>FAQ</h1>
+    <div class="faqQuestions">
+      <div class="faqQuestion">
+        <h2>
+          <span>
+            How does it work?
+          </span>
+          <div class="close-button"></div>
+        </h2>
+        <div class="question">We have collected our own data set and developed an advanced phonetic model that delivers
+          outstanding
+          lip-sync quality.</div>
+      </div>
+      <div class="faqQuestion">
+        <h2>
+          <span>
+            How does it work?
+          </span>
+          <div class="close-button"></div>
+        </h2>
+        <div class="question">We have collected our own data set and developed an advanced phonetic model that delivers
+          outstanding
+          lip-sync quality.</div>
+      </div>
+      <div class="faqQuestion">
+        <h2>
+          <span>
+            How does it work?
+          </span>
+          <div class="close-button"></div>
+        </h2>
+
+        <div class="question">We have collected our own data set and developed an advanced phonetic model that delivers
+          outstanding
+          lip-sync quality.</div>
+      </div>
+    </div>
+
+    <h1>Let's get in touch</h1>
+    <div class="subtitle">
+      Write to us if you have any enquiries about business, partnership<br />
+      and turnkey solutions.
+    </div>
+    <div class="form">
+      <label>Email</label>
+      <input placeholder="example@email.com" type="text">
+      <label>Name</label>
+      <input placeholder="Full name" type="text">
+      <label>Message</label>
+      <textarea placeholder="Write your message...."></textarea>
+      <button class="action">Get in Touch</button>
+    </div>
+
+    <footer>
+      <div class="links">
+        <a href="">Pricing</a>
+        <a href="">Privacy</a>
+        <a href="">Features</a>
+        <a href="">Documentation</a>
+        <a href="">Contact</a>
+      </div>
+      <div class="social-media">
+        <!-- <div class="facebook" href=""></div>
+        <div class="twitter" href=""></div>
+        <div class="youtube" href=""></div>
+        <div class="discord" href=""></div> -->
+
+        <a class="facebook" href=""></a>
+        <a class="twitter" href=""></a>
+        <a class="youtube" href=""></a>
+        <a class="discord" href=""></a>
+      </div>
+      <div class="copyright">© Copyright 2024 - EasyVFX</div>
+    </footer>
+  </div>
+</div>
