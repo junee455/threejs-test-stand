@@ -4,13 +4,18 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const path = require("path");
 
 const htmlPages = [
+  "pure_js_effects",
+  "gjk2d",
+  "sobes",
   "tweenTest",
   "vpsTest",
   "engineTest",
   "perlinNoise",
   "perlinNoise3D",
   "landing",
-  "physics"
+  "physics",
+  "canvasDrawer",
+  "marchingCubes"
 ];
 
 function generateHtmlTemplates() {
